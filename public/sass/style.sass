@@ -1,0 +1,571 @@
+@import 'init'
+@import 'ui'
+
+=bgi($item)
+  background-image: url('../img/' + $item)
+  background-repeat: no-repeat
+  background-color: transparent
+  background-position: 50%
+.head
+  background-color: $headbg
+  height: 60px
+  padding-left: 225px
+  display: flex
+  z-index: 10
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  &-container
+    display: flex
+    align-items: center
+    max-width: 1555px
+    width: 100%
+    margin: auto
+    justify-content: space-between
+  .search
+    width: 50%
+    form
+      margin-left: auto
+      width: 530px
+      max-width: 100%
+      height: 40px
+      overflow: hidden
+      position: relative
+      border-radius: 8px
+    &-input
+      background-color: $searchbg
+      width: 480px
+      padding: 0 35px 0 15px
+      line-height: 40px
+      font-size: 16px
+      border: none
+      color: #fff
+    &-btn
+      border: none
+      position: absolute
+      right: 0
+      top: 0
+      cursor: pointer
+      width: 40px
+      height: 40px
+      padding: 10px
+      +bgi('search.svg')
+      background-size: 20px
+  .user
+    width: 50%
+    margin-left: auto
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    &-flash
+      width: 13px
+      height: 21px
+      +bgi('flash.svg')
+      background-size: contain
+    &-mail
+      width: 23px
+      height: 17px
+      +bgi('mail.svg')
+      background-size: contain
+      margin-left: 30px
+    &-photo
+      border-radius: 50%
+      border: 0px solid #ffffff
+      height: 50px
+      width: 50px
+      margin-left: 30px
+      img
+        max-width: 100%
+    &-info
+      color: #fff
+      margin-left: 30px
+      font-size: 16px
+      &-company, &-name
+        white-space: nowrap
+        text-overflow: ellipsis
+        overflow: hidden
+        max-width: 110px
+    &-other
+      svg
+        display: block
+        width: 22px
+        height: 5px
+        padding: 20px 10px
+        cursor: pointer
+        margin-left: 45px
+        path
+          fill: $dotslight
+.content
+  display: flex
+  padding: 0
+  overflow: hidden
+  z-index: 9
+  width: 100%
+  height: calc(100vh - 60px)
+  padding-top: 60px
+.sidebar.close
+  width: 50px
+  min-width: 50px
+  max-width: 50px
+  transition-delay: .4s
+  overflow: hidden
+  .btn
+    &-menu
+      transform: rotate(180deg) translate(50%, 50%)
+      left: 50%
+      top: 50%
+  .tipsNews
+    transition-delay: 0s
+    opacity: 0
+  .footer
+    transition-delay: 0s
+    opacity: 0
+  .menu
+    &-link
+      a
+        padding-left: 0
+        text-align: center
+      &-ico
+        margin-right: auto
+        margin-left: 17px
+        transition: .5s
+      &-name
+        opacity: 0
+        left: 0
+.sidebar
+  width: 225px
+  margin-top: 0
+  max-width: 225px
+  min-width: 225px
+  background-color: $asaidcol
+  flex-grow: 1
+  display: flex
+  flex-direction: column
+  overflow-x: hidden
+  overflow-y: auto
+  transition: 1s
+
+  .hgwrap
+    height: 62px
+    min-height: 62px
+    width: 100%
+    position: relative
+  .btn-menu
+    position: absolute
+    left: 100%
+    top: 50%
+    transform: translate(-100%, -50%)
+    width: 22px
+    height: 14px
+    display: block
+    border: none
+    transition: .5s
+    +bgi('Menu.svg')
+    &:hover
+      padding-right: 25px
+.menu
+  ul
+    padding: 0
+    margin: 0
+    max-height: 60vh
+    display: flex
+    flex-direction: column
+  &-link
+    list-style: none
+    max-width: 100%
+    overflow: hidden
+    display: flex
+    align-items: center
+    &-name
+      position: absolute
+      left: 86px
+      opacity: 1
+      transition: 0.6s
+    &-ico
+      width: 16px
+      height: 16px
+      display: inline-block
+      margin-right: 15px
+    a
+      padding-left: 55px
+      display: flex
+      align-items: center
+      height: 58px
+      text-align: left
+      width: 100%
+      color: $navdevcol
+      text-decoration: none
+      transition: .3s
+      font-size: 16px
+      position: relative
+      svg
+        display: block
+      path
+        fill: $icodefcol
+      &.active, &:hover
+        background-color: $btnbg
+        color: $navhovcol
+        & path
+          fill: $icohovcol
+.itemsClose
+  display: flex
+  align-items: center
+  margin: 20px 0
+  &-text
+    margin-left: 15px
+    &-des
+      color: $paneltextcol
+      font-size: 14px
+    &-title
+      font-size: 16px
+      color: $success
+      font-style: italic
+      text-decoration: line-through
+  &-status
+    border-radius: 50%
+    padding: 5px
+    width: 12px
+    min-width: 12px
+    height: 12px
+    +bgi('check.svg')
+    background-color: $success
+    background-size: 12px 9px
+.itemError.itemOpen
+  .itemOpen
+    &-text
+      &-title
+        color: $error
+.itemOpen
+  display: flex
+  align-items: center
+  margin: 20px 0
+  &-text
+    margin-left: 15px
+    &-title
+      font-size: 16px
+      color: $texttabactive
+    &-des
+      color: $paneltextcol
+      font-size: 14px
+  &-status
+    border-radius: 50%
+    padding: 5px
+    width: 12px
+    min-width: 12px
+    height: 12px
+    border: 1px solid #95989A
+    background-color: #fff
+.tab
+  display: none
+  padding: 20px 0
+  &.active
+    display: block
+.main
+  flex-grow: 0
+  display: flex
+  width: 100%
+  padding: 15px
+  overflow-y: auto
+  overflow-x: hidden
+  &-content
+    margin: auto
+    max-width: 1555px
+    width: 100%
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    &-board
+      width: 50%
+      min-width: 360px
+      flex-grow: 0
+      &-des
+        font-family: 'Loto'
+        color: $maintext
+        &-title
+          font-weight: normal
+      a
+        text-decoration: none
+        color: #2891FB
+    .board
+      background-color: #fff
+      position: relative
+      &-columName
+        position: relative
+        display: flex
+        @media (max-width: 1500px)
+          flex-wrap: wrap
+        &-open
+          display: flex
+          flex-direction: column
+          flex-grow: 1
+          min-width: 300px
+        &-close
+          display: flex
+          flex-direction: column
+          flex-grow: 1
+          min-width: 300px
+        &-open-items
+          padding: 20px 30px
+          display: flex
+          flex-direction: column
+        &-close-items
+          padding: 20px 30px
+          display: flex
+          flex-direction: column
+        &-line
+          display: flex
+          justify-content: space-between
+          align-items: center
+          height: 80px
+          padding: 0 30px
+          border-bottom: 1px solid $tabbg
+      &-tab
+        background-color: $tabbg
+        display: flex
+        align-items: center
+        height: 60px
+        margin-right: 115px
+        &-wrap
+          display: flex
+        &-nav
+          width: 115px
+          height: 60px
+          background-color: $tabbg
+          position: absolute
+          right: 0
+          top: 0
+          display: flex
+          justify-content: center
+          align-items: center
+          & .navtabbtn
+            background-color: transparent
+            border: none
+            display: none
+            svg
+              width: 26px
+              height: 26px
+              display: block
+        &-btn
+          border: none
+          background: transparent
+          font-size: 16px
+          margin: 0 20px
+          color: $texttabdev
+          cursor: pointer
+          position: relative
+          white-space: nowrap
+          text-overflow: ellipsis
+          overflow: hidden
+          display: block
+          min-width: fit-content
+          line-height: 60px
+          &.active
+            color: $texttabactive
+            &:after
+              content: ''
+              width: 100%
+              height: 4px
+              display: block
+              position: absolute
+              left: 0
+              bottom: 0
+              background-color: $btnbg
+    &-widget
+      width: 50%
+      flex-grow: 0
+      min-width: 360px
+      text-align: right
+      padding-top: 30px
+      &-wrap
+        display: inline-flex
+        flex-wrap: wrap
+        justify-content: center
+        align-items: center
+        margin-right: -15px
+        max-width: 100%
+      &-globalBars
+        width: 320px
+        height: 320px
+        background: #fff
+        margin: 20px
+        &-title
+          height: 28px
+          display: flex
+          align-items: center
+          justify-content: space-between
+          padding: 15px 20px
+          color: #323C47
+          font-size: 12px
+          font-weight: bold
+          svg
+            width: 19px
+            padding: 15px 0
+            cursor: pointer
+            path
+              fill: $dotsdark
+        &-info
+          display: flex
+          .val.sales
+            &:after
+              background-color: #FDE484
+          .val
+            border: 1px solid #E9EFF4
+            text-align: center
+            width: 50%
+            padding-top: 15px
+            margin-bottom: 15px
+            &:after
+              content: ''
+              width: 50%
+              height: 4px
+              display: block
+              background-color: #F5C82C
+              margin: 17px auto 0 auto
+            &-num
+              font-size: 22px
+              font-family: 'Roboto', sans-serif
+              color: $texttabactive
+            &-des
+              font-size: 10px
+              font-family: 'Roboto', sans-serif
+              color: $texttabdev
+      &-radial
+        width: 320px
+        height: 320px
+        background-color: $widget
+        margin: 20px
+        display: flex
+        flex-direction: column
+        &-graph
+          display: flex
+          justify-content: center
+          align-items: center
+          margin-top: auto
+        &-info
+          display: flex
+          justify-content: space-between
+          padding: 10px 15px
+          margin-top: auto
+          .infocol
+            display: flex
+            flex-direction: column
+            align-items: flex-start
+            justify-content: center
+            span
+              display: flex
+              align-items: center
+              color: #fff
+              font-size: 12px
+            .expenses:before
+              content: ''
+              display: inline-block
+              width: 10px
+              height: 10px
+              background: #FF5E78
+              border-radius: 50%
+              margin-right: 10px
+            .profit:before
+              content: ''
+              display: inline-block
+              width: 10px
+              height: 10px
+              background: #FFD012
+              border-radius: 50%
+              margin-right: 10px
+        &-title
+          height: 28px
+          display: flex
+          align-items: center
+          justify-content: space-between
+          padding: 15px 20px
+          color: #fff
+          font-weight: bold
+          font-size: 12px
+          border-bottom: 1px solid #EBEBEB
+          svg
+            width: 19px
+            padding: 15px 0
+            cursor: pointer
+            path
+              fill: $dotslight
+      &-localBars
+        max-width: 622px
+        width: 100%
+        height: 348px
+        margin-top: auto
+        background-color: #fff
+        margin: 20px
+        padding: 20px 30px
+        #localBars
+          min-height: 230px
+        &-title
+          flex-wrap: wrap
+          display: flex
+          justify-content: space-between
+          .titletext
+            font-size: 25px
+            font-weight: bold
+            color: #323C47
+            margin-right: 40px
+            margin-bottom: 10px
+          .titleselect
+            margin-right: auto
+            margin-bottom: 10px
+          #period-button
+            margin-bottom: 10px
+          .titlegraph
+            border: 2px solid #E9EFF4
+            border-radius: 10px
+            margin-bottom: 10px
+            .btn
+              font-size: 9px
+              padding: 11px 23px
+              background-color: #fff
+              &.active
+                background-color: $btnbg
+
+.tipsNews
+  padding: 20px 18px
+  width: 130px
+  border: 1px solid rgba(208,215,221,0.37)
+  margin-left: auto
+  margin-right: auto
+  margin-top: auto
+  margin-bottom: -38px
+  opacity: 1
+  transition: .3s
+  transition-delay: 0.5s
+  &-title
+    font-size: 14px
+    color: $icodefcol
+    font-weight: bold
+  &-des
+    font-size: 11px
+    color: $paneltextcol
+    margin: 15px 0
+  &-other
+    a
+      font-size: 11px
+      text-decoration: none
+      color: $paneltextcol
+      cursor: pointer
+.footer
+  opacity: 1
+  transition: .3s
+  transition-delay: 0.5s
+  margin-top: auto
+  margin-bottom: 0px
+  &:before
+    content: ''
+    display: block
+    width: 197px
+    height: 197px
+    +bgi('roket.png')
+    margin-bottom: -1em
+  &-text
+    text-align: center
+    font-size: 12px
+    color: $navdevcol
+    line-height: 1em
+@import 'media'

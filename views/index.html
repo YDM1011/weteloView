@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task Board</title>
+
+    <link rel='stylesheet' href='../public/css/style.css'>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+<header class="head">
+    <div class="head-container">
+        <div class="search">
+            <form action="/">
+                <input class="search-input" type="text">
+                <button class="search-btn" type="submit"></button>
+            </form>
+        </div>
+        <div class="user">
+            <div class="user-flash"></div>
+            <div class="user-mail"></div>
+            <div class="user-photo">
+                <img src="../public/img/user.png" alt="my photo">
+            </div>
+            <div class="user-info">
+                <div class="user-info-company">Wetelo INC</div>
+                <div class="user-info-name">Peter Stasyuk</div>
+            </div>
+
+        </div>
+        <div class="user-other">
+            <svg viewBox="0 0 22 5">
+                <path d="M37.578,5a2.463,2.463,0,0,1-2.422-2.5A2.423,2.423,0,1,1,40,2.5,2.462,2.462,0,0,1,37.578,5ZM29,5a2.455,2.455,0,0,1-2.406-2.5,2.408,2.408,0,1,1,4.812,0A2.455,2.455,0,0,1,29,5ZM20.422,5A2.462,2.462,0,0,1,18,2.5a2.423,2.423,0,1,1,4.844,0A2.463,2.463,0,0,1,20.422,5Z" transform="translate(-18)"/>
+            </svg>
+        </div>
+    </div>
+</header>
+<div class="content">
+    <aside class="sidebar close">
+        <div class="hgwrap">
+            <button class="btn-menu"></button>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li class="menu-link">
+                    <a class="active" href="#">
+                        <span class="menu-link-ico">
+                            <svg viewBox="0 0 16 16">
+                              <path d="M11,1,6,6H3L0,10s3.178-.885,5.032-.47L0,16l6.592-5.128C7.511,12.976,6,16,6,16l4-3V10l5-5,1-5Z"/>
+                            </svg>
+                        </span>
+                        <span class="menu-link-name" style="transition-delay: 0.4s; transition-property: left, opacity">Dashboard</span>
+                    </a>
+                </li>
+                <li class="menu-link">
+                    <a href="#">
+                        <span class="menu-link-ico">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 14.857">
+                              <path d="M11.143,14.333v-.942a5.1,5.1,0,0,0,2.286-4.247C13.429,6.3,13.429,4,10,4S6.571,6.3,6.571,9.144a5.1,5.1,0,0,0,2.286,4.247v.942C4.981,14.65,2,16.555,2,18.858H18C18,16.555,15.019,14.65,11.143,14.333Z" transform="translate(-2 -4.001)"/>
+                            </svg>
+                        </span>
+                        <span class="menu-link-name" style="transition-delay: 0.35s; transition-property: left, opacity">Contacts</span>
+                    </a>
+                </li>
+                <li class="menu-link">
+                    <a href="#">
+                        <span class="menu-link-ico">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 14">
+                              <path d="M13,2H3L0,5V15.5a.5.5,0,0,0,.5.5h15a.5.5,0,0,0,.5-.5V5ZM8,14,3,10H6V7h4v3h3ZM2.414,4l1-1h9.172l1,1H2.414Z" transform="translate(0 -2)"/>
+                            </svg>
+                        </span>
+                        <span class="menu-link-name" style="transition-delay: 0.3s; transition-property: left, opacity">Products</span>
+                    </a>
+                </li>
+                <li class="menu-link">
+                    <a href="#">
+                        <span class="menu-link-ico">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 13">
+                              <path d="M15,6H11V5a1,1,0,0,0-1-1H6A1,1,0,0,0,5,5V6H1A1,1,0,0,0,0,7v9a1,1,0,0,0,1,1H15a1,1,0,0,0,1-1V7A1,1,0,0,0,15,6ZM6,5,6,5h4l0,0V6H6V5Zm9,5H13v1.5a.5.5,0,0,1-.5.5h-1a.5.5,0,0,1-.5-.5V10H5v1.5a.5.5,0,0,1-.5.5h-1a.5.5,0,0,1-.5-.5V10H1V9H15Z" transform="translate(0 -4)"/>
+                            </svg>
+                        </span>
+                        <span class="menu-link-name" style="transition-delay: 0.25s; transition-property: left, opacity">Accounting</span>
+                    </a>
+                </li>
+                <li class="menu-link">
+                    <a href="#">
+                        <span class="menu-link-ico">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 14">
+                              <path d="M0,2V16H16V2Zm6,9V8h4v3Zm4,1v3H6V12Zm0-8V7H6V4ZM5,4V7H1V4ZM1,8H5v3H1ZM11,8h4v3H11Zm0-1V4h4V7ZM1,12H5v3H1Zm10,3V12h4v3Z" transform="translate(0 -2)"/>
+                            </svg>
+                        </span>
+                        <span class="menu-link-name" style="transition-delay: 0.2s; transition-property: left, opacity">Calendar</span>
+                    </a>
+                </li>
+                <li class="menu-link">
+                    <a href="#">
+                        <span class="menu-link-ico">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                              <path d="M2,14H16v2H0V0H2Zm2.5-1a1.5,1.5,0,0,1,0-3c.044,0,.088,0,.131.006L6.243,7.319a1.5,1.5,0,1,1,2.513,0l1.613,2.687c.043,0,.087-.006.131-.006s.066,0,.1,0l2.662-4.658A1.5,1.5,0,1,1,14.5,6c-.033,0-.066,0-.1,0l-2.662,4.658a1.5,1.5,0,1,1-2.5.026L7.631,7.993C7.588,8,7.544,8,7.5,8s-.088,0-.131-.006L5.756,10.681A1.5,1.5,0,0,1,4.5,13Z"/>
+                            </svg>
+                        </span>
+                        <span class="menu-link-name" style="transition-delay: 0.15s; transition-property: left, opacity">Reports</span>
+                    </a>
+                </li>
+                <li class="menu-link">
+                    <a href="#">
+                        <span class="menu-link-ico">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 14.993">
+                              <path d="M8,2c4.418,0,8,2.91,8,6.5S12.418,15,8,15a9.83,9.83,0,0,1-1.247-.079A7.792,7.792,0,0,1,1,16.993v-.42A3.183,3.183,0,0,0,3,14a3.016,3.016,0,0,0-.034-.449A6.119,6.119,0,0,1,0,8.5C0,4.91,3.582,2,8,2Z" transform="translate(0 -2)"/>
+                            </svg>
+                        </span>
+                        <span class="menu-link-name" style="transition-delay: 0.1s; transition-property: left, opacity">Chat</span>
+                    </a>
+                </li>
+                <li class="menu-link">
+                    <a href="#">
+                        <span class="menu-link-ico">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 14">
+                              <path d="M7,3V2.75A.752.752,0,0,0,6.25,2H3.75A.752.752,0,0,0,3,2.75V3H0V5H3v.25A.752.752,0,0,0,3.75,6h2.5A.752.752,0,0,0,7,5.25V5h9V3ZM4,5V3H6V5Zm9,2.75A.752.752,0,0,0,12.25,7H9.75A.752.752,0,0,0,9,7.75V8H0v2H9v.25a.752.752,0,0,0,.75.75h2.5a.752.752,0,0,0,.75-.75V10h3V8H13ZM10,10V8h2v2ZM7,12.75A.752.752,0,0,0,6.25,12H3.75a.752.752,0,0,0-.75.75V13H0v2H3v.25a.752.752,0,0,0,.75.75h2.5A.752.752,0,0,0,7,15.25V15h9V13H7ZM4,15V13H6v2Z" transform="translate(0 -2)"/>
+                            </svg>
+                        </span>
+                        <span class="menu-link-name">Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="tipsNews">
+            <div class="tipsNews-title">
+                <div class="tipsNews-title-text">Tips & News</div>
+                <div class="tipsNews-title-btn">
+                    <span class="tipsNews-title-btn-prev"></span>
+                    <span class="tipsNews-title-btn-next"></span>
+                </div>
+            </div>
+            <p class="tipsNews-des">Create a new workflow in your dashboard with ease.</p>
+            <div class="tipsNews-other">
+                <a href="#">> Read more</a>
+            </div>
+        </div>
+        <div class="footer">
+            <p class="footer-text">
+                <b>TestCRM</b> - Help Centr
+            </p>
+            <p class="footer-text">
+                License name - 3GB used of 25GB
+            </p>
+        </div>
+    </aside>
+    <div class="main">
+        <div class="main-content">
+            <div class="main-content-board">
+                <div class="main-content-board-des">
+                    <h2 class="main-content-board-des-title">Welcome aboard, Peter !</h2>
+                    <p class="main-content-board-des-p">Did you know that this is a fun fact phrase here or an inspirationnal quote to engage you in a good day and in a good  mood, to make better work! But can also be a news or announce. <a href="#">You can see his work at this link.</a></p>
+                    <p class="main-content-board-des-p">Interesting isn't it? Now, let's see what we have to do today.</p>
+                </div>
+                <div class="main-content-board-block board block">
+                    <div class="board-tab">
+                        <div class="board-tab-wrap">
+                            <button class="board-tab-btn" onclick="tab('mett', this)">Meetings</button>
+                            <button class="board-tab-btn" onclick="tab('notif', this)">Notifications</button>
+                            <button class="board-tab-btn active" onclick="tab('todo', this)">To-do</button>
+                            <button class="board-tab-btn" onclick="tab('mes', this)">Messages</button>
+                            <button class="board-tab-btn" onclick="tab('favorit', this)">Favorites Documents</button>
+
+                        </div>
+
+                    </div>
+                    <div class="board-tab-nav">
+                        <button class="nav-prev navtabbtn">
+                            <svg viewBox="0 0 27 27">
+                                <g transform="translate(-1074 -173)">
+                                    <rect width="26" height="26" rx="4" transform="translate(1074.5 173.5)" fill="transparent" stroke="#d0d7dd"/>
+                                    <path d="M248.476,31.2,243.9,26.746a1.926,1.926,0,0,1,.108-2.583l4.4-4.284a1.188,1.188,0,0,1,1.65,0,1.114,1.114,0,0,1,0,1.606l-4.064,3.958,4.2,4.087a1.16,1.16,0,0,1,0,1.671A1.236,1.236,0,0,1,248.476,31.2Z" transform="translate(840 161)" fill="#a3aeb7"/>
+                                </g>
+                            </svg>
+                        </button>
+                        <button class="nav-next navtabbtn">
+                            <svg viewBox="38 0 27 27">
+                                <g transform="translate(-1074 -173)">
+                                    <rect width="26" height="26" rx="4" transform="translate(1138.5 199.5) rotate(180)" fill="transparent" stroke="#d0d7dd"/>
+                                    <path d="M248.476,31.2,243.9,26.746a1.926,1.926,0,0,1,.108-2.583l4.4-4.284a1.188,1.188,0,0,1,1.65,0,1.114,1.114,0,0,1,0,1.606l-4.064,3.958,4.2,4.087a1.16,1.16,0,0,1,0,1.671A1.236,1.236,0,0,1,248.476,31.2Z" transform="translate(1373 212.094) rotate(180)" fill="#a3aeb7"/>
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="todo" class="tab active">
+                        <div class="board-columName">
+                            <div class="board-columName-open">
+                                <div class="board-columName-line">
+                                    <div class="board-columName-open-title"><b>Open Tasks </b><span id="taskOpen">[5 left]</span></div>
+                                </div>
+                                <div class="board-columName-open-items">
+                                    <div class="board-columName-open-item itemOpen">
+                                        <div class="itemOpen-status"></div>
+                                        <div class="itemOpen-text">
+                                            <div class="itemOpen-text-title">Create new plan</div>
+                                            <div class="itemOpen-text-des">Related to iPhone 7s / Deadline 21.09.16</div>
+                                        </div>
+                                    </div>
+                                    <div class="board-columName-open-item itemOpen">
+                                        <div class="itemOpen-status"></div>
+                                        <div class="itemOpen-text">
+                                            <div class="itemOpen-text-title">Integrate online feature</div>
+                                            <div class="itemOpen-text-des">Related to Lory White / Deadline 21.09.16</div>
+                                        </div>
+                                    </div>
+                                    <div class="board-columName-open-item itemOpen">
+                                        <div class="itemOpen-status"></div>
+                                        <div class="itemOpen-text">
+                                            <div class="itemOpen-text-title">Build second prototype</div>
+                                            <div class="itemOpen-text-des">Related to Hervé Frank / Deadline 21.09.16</div>
+                                        </div>
+                                    </div>
+                                    <div class="board-columName-open-item itemOpen">
+                                        <div class="itemOpen-status"></div>
+                                        <div class="itemOpen-text">
+                                            <div class="itemOpen-text-title">Main page slider</div>
+                                            <div class="itemOpen-text-des">No related / Deadline 21.09.16</div>
+                                        </div>
+                                    </div>
+                                    <div class="board-columName-open-item itemOpen itemError">
+                                        <div class="itemOpen-status"></div>
+                                        <div class="itemOpen-text">
+                                            <div class="itemOpen-text-title">Account integration</div>
+                                            <div class="itemOpen-text-des">No related / Deadline 21.09.16</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="board-columName-close">
+                                <div class="board-columName-line">
+                                    <div class="board-columName-close-title"><b>Closed Tasks </b></div>
+                                    <div class="board-columName-add">
+                                        <button class="btn active">+ add task</button>
+                                    </div>
+                                </div>
+                                <div class="board-columName-close-items">
+                                    <div class="board-columName-close-item itemsClose">
+                                        <div class="itemsClose-status"></div>
+                                        <div class="itemsClose-text">
+                                            <div class="itemsClose-text-title">Integrate new fireframe</div>
+                                            <div class="itemsClose-text-des">Related to iPhone 7s / Deadline 21.09.16</div>
+                                        </div>
+                                    </div>
+                                    <div class="board-columName-close-item itemsClose">
+                                        <div class="itemsClose-status"></div>
+                                        <div class="itemsClose-text">
+                                            <div class="itemsClose-text-title">Check all bugs</div>
+                                            <div class="itemsClose-text-des">Related to Lory White / Deadline 21.09.16</div>
+                                        </div>
+                                    </div>
+                                    <div class="board-columName-close-item itemsClose">
+                                        <div class="itemsClose-status"></div>
+                                        <div class="itemsClose-text">
+                                            <div class="itemsClose-text-title">Watch all videos</div>
+                                            <div class="itemsClose-text-des">Related to Hervé Frank / Deadline 21.09.16</div>
+                                        </div>
+                                    </div>
+                                    <div class="board-columName-close-item itemsClose">
+                                        <div class="itemsClose-status"></div>
+                                        <div class="itemsClose-text">
+                                            <div class="itemsClose-text-title">Talk with chief</div>
+                                            <div class="itemsClose-text-des">No related / Deadline 21.09.16</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="notif" class="tab">
+                        <h2>Notifications</h2>
+                    </div>
+                    <div id="mett" class="tab">
+                        <h2>Meetings</h2>
+                    </div>
+                    <div id="mes" class="tab">
+                        <h2>Messages</h2>
+                    </div>
+                    <div id="favorit" class="tab">
+                        <h2>Favorites Documents</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content-widget">
+                <div class="main-content-widget-wrap">
+                    <div class="main-content-widget-globalBars block">
+                        <div class="main-content-widget-globalBars-title">
+                            <div class="titletext">
+                                SALES
+                            </div>
+                            <div class="titledots">
+                                <svg viewBox="0 0 22 5">
+                                    <path d="M37.578,5a2.463,2.463,0,0,1-2.422-2.5A2.423,2.423,0,1,1,40,2.5,2.462,2.462,0,0,1,37.578,5ZM29,5a2.455,2.455,0,0,1-2.406-2.5,2.408,2.408,0,1,1,4.812,0A2.455,2.455,0,0,1,29,5ZM20.422,5A2.462,2.462,0,0,1,18,2.5a2.423,2.423,0,1,1,4.844,0A2.463,2.463,0,0,1,20.422,5Z" transform="translate(-18)"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="main-content-widget-globalBars-info">
+                            <div class="val">
+                                <b class="val-num">+13%</b>
+                                <div class="val-des">compared to last month</div>
+                            </div>
+                            <div class="val sales">
+                                <b class="val-num">+21%</b>
+                                <div class="val-des">of product category sales</div>
+                            </div>
+                        </div>
+                        <div class="main-content-widget-globalBars-graph">
+                            <canvas id="globalBars"></canvas>
+                        </div>
+                    </div>
+                    <div class="main-content-widget-radial block">
+                        <div class="main-content-widget-radial-title">
+                            <div class="titletext">
+                                GOAL : REVENUE
+                            </div>
+                            <div class="titledots">
+                                <svg viewBox="0 0 22 5">
+                                    <path d="M37.578,5a2.463,2.463,0,0,1-2.422-2.5A2.423,2.423,0,1,1,40,2.5,2.462,2.462,0,0,1,37.578,5ZM29,5a2.455,2.455,0,0,1-2.406-2.5,2.408,2.408,0,1,1,4.812,0A2.455,2.455,0,0,1,29,5ZM20.422,5A2.462,2.462,0,0,1,18,2.5a2.423,2.423,0,1,1,4.844,0A2.463,2.463,0,0,1,20.422,5Z" transform="translate(-18)"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="main-content-widget-radial-graph">
+                            <img src="../public/img/radial.png" alt="">
+                        </div>
+                        <div class="main-content-widget-radial-info">
+                            <div class="infocol">
+                                <span>+4,7% this month</span>
+                                <span>240 days remained</span>
+                            </div>
+                            <div class="infocol">
+                                <span class="expenses">expenses</span>
+                                <span class="profit">profit</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-content-widget-localBars block">
+                        <div class="main-content-widget-localBars-title">
+                            <div class="titletext">
+                                SALES
+                            </div>
+                            <select id="period" class="titleselect">
+                                <option>13 Oct - 13 Nov</option>
+                                <option>13 Nov - 13 Dec</option>
+                            </select>
+                            <div class="titlegraph">
+                                <button class="active btn bars">bars</button>
+                                <button class="btn graph">graph</button>
+                            </div>
+                        </div>
+                        <div class="main-content-widget-localBars-graph">
+                            <canvas id="localBars"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script src="../public/js/jquery.js"></script>
+<script src="../public/js/UI.js"></script>
+<script>
+    $( "#period" ).selectmenu();
+    function tab(elem, e) {
+        $('.tab').each( i =>{
+            $('.tab')[i].classList.remove('active');
+            $('.board-tab-btn')[i].classList.remove('active');
+        })
+        e.classList.add('active');
+        document.getElementById(elem).classList.add('active')
+    }
+    $('.btn-menu').on('click', function () {
+        if ($('.sidebar.close')[0]){
+            $('.sidebar.close')[0].classList.remove('close')
+        }else{
+            $('.sidebar')[0].classList.add('close')
+        }
+    })
+    $('.bars').on('click', function () {
+        if ($('.graph.active')[0]){
+            $('.graph.active')[0].classList.remove('active')
+        }
+        $('.bars')[0].classList.add('active')
+    })
+    $('.graph').on('click', function () {
+        if ($('.bars.active')[0]){
+            $('.bars.active')[0].classList.remove('active')
+        }
+        $('.graph')[0].classList.add('active')
+    })
+    window.onresize = tabBtn;
+    tabBtn();
+    function tabBtn() {
+        if($('.board-tab').width() < $('.board-tab-wrap').width()-50){
+           $('.navtabbtn').css({
+               'display': 'flex'
+           })
+        } else {
+            $('.navtabbtn').css({
+                'display': 'none'
+            })
+        }
+        console.log("ok")
+    }
+    $('.nav-prev').on('click', function () {
+        const fulwidth = $('.board-tab-wrap').width();
+        const width = $('.board-tab').width();
+        const maxmove = fulwidth - width;
+        if (Math.abs($('.board-tab-wrap')[0].offsetLeft)+50 < maxmove){
+            $('.board-tab-wrap').css({
+                'left': $('.board-tab-wrap')[0].offsetLeft - 50 +'px',
+                'position': 'relative'
+            })
+        }
+    })
+    $('.nav-next').on('click', function () {
+        const fulwidth = $('.board-tab-wrap').width();
+        const width = $('.board-tab').width();
+        const maxmove = fulwidth - width;
+        if ($('.board-tab-wrap')[0].offsetLeft < 0){
+            $('.board-tab-wrap').css({
+                'left': $('.board-tab-wrap')[0].offsetLeft + 50 +'px',
+                'position': 'relative'
+            })
+        }
+    })
+    $('.user-other > svg').on('click', function () {
+        if ($('.user.open')[0]){
+            $('.user.open')[0].classList.remove('open')
+        }else{
+            $('.user')[0].classList.add('open')
+        }
+    })
+</script>
+
+<script>
+
+        var barChartData = {
+            labels: ['May', 'Jun', 'Jul', 'Sep', 'Oct', 'Nov'],
+            datasets: [{
+                label: '',
+                backgroundColor: "#FFD012",
+                data: [
+                    50,
+                    50,
+                    80,
+                    70,
+                    50,
+                    50
+                ]
+            }, {
+                label: '',
+                backgroundColor: "#FFE57F",
+                data: [
+                    100,
+                    150,
+                    500,
+                    400,
+                    100,
+                    120
+                ]
+            }]
+
+        };
+        var barChart = {
+            labels: ['','','','','','','','','','','','','','','','','','','', ''],
+            datasets: [{
+                label: '',
+                backgroundColor: "#BBF06C",
+                data: [
+                    150,80,50,60,400,150,200,400,150,200,90,50,65,450,150,200,30,100,180,100
+                ]
+            }]
+
+        };
+    window.onload = function() {
+        var ctx = document.getElementById('globalBars').getContext('2d');
+        window.myBar = new Chart(ctx, {
+            type: 'bar',
+            data: barChartData,
+            options: {
+                title: {
+                    display: false,
+                    text: ''
+                },
+                legend: {
+                    display: false
+                },
+                layout: {
+                    padding: {
+                        left: 15,
+                        right: 20,
+                        top: 15,
+                        bottom: 15
+                    }
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false
+                },
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        stacked: true,
+                    }],
+                    yAxes: [{
+                        stacked: false
+                    }]
+                }
+            }
+        });
+        var ctx = document.getElementById('localBars').getContext('2d');
+        window.myBar2 = new Chart(ctx, {
+            type: 'bar',
+            data: barChart,
+            options: {
+                title: {
+                    display: false,
+                    text: ''
+                },
+                legend: {
+                    display: false
+                },
+                layout: {
+                    padding: {
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        bottom: 0
+                    }
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false
+                },
+                responsive: true,
+                scales: {
+                    xAxes: [{
+                        stacked: false,
+                    }],
+                    yAxes: [{
+                        stacked: false
+                    }]
+                }
+            }
+        });
+    };
+
+
+
+
+
+</script>
+</body>
+</html>

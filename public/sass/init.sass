@@ -1,0 +1,48 @@
+$headbg: #3D439B
+$btnbg: #3D439B
+$widget: #3D439B
+$searchbg: #0C114E
+$bodybg: #F3F6F8
+$tabbg: #f4f7f9
+$success: #9BDB23
+$error: #FF6D4B
+$icodefcol: #7175B5
+$icohovcol: #EBEBEF
+$navdevcol: #A1A4CE
+$navhovcol: #EBEBEF
+$maintext: #444444
+$texttabactive: #323C47
+$texttabdev: #989898
+$paneltextcol: #95989A
+$dotsdark: #D0D7DD
+$dotslight: #F3F6F8
+$asaidcol: #fff
+@import url('https://fonts.googleapis.com/css?family=Open+Sans')
+@import url('https://fonts.googleapis.com/css?family=Lato')
+@import url('https://fonts.googleapis.com/css?family=Roboto')
+*
+  font-family: 'Open Sans', sans-serif
+  &:focus
+    outline: none!important
+body
+  margin: 0
+  background-color: $bodybg
+.block
+  box-shadow: 0 3px 6px rgba(0,0,0,.16)
+  border-radius: 5px
+  overflow: hidden
+button, a
+  cursor: pointer
+.btn
+  padding: 10px 18px 11px 18px
+  text-transform: uppercase
+  border-radius: 5px
+  border: none
+  cursor: pointer
+  font-family: 'Roboto', sans-serif
+  &.active
+    color: #fff
+    background-color: $btnbg
+  &.disable
+    color: #808FA3
+    background-color: #fff
